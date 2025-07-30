@@ -14,7 +14,7 @@
             width: 100%;
             height: 100%;
             font-family: 'Arial', sans-serif;
-            overflow: hidden; /* Verhindert Scrollbalken */
+            overflow: auto; /* Geändert von hidden, damit gescrollt werden kann */
         }
 
         .background-animation {
@@ -46,7 +46,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
+            min-height: 100vh; /* Stellt sicher, dass der Container mindestens die volle Höhe hat */
+            padding: 20px 0; /* Fügt etwas Platz oben und unten hinzu */
             text-align: center;
             color: white;
         }
@@ -58,29 +59,26 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 90%;
+            width: 500px; /* Eine feste Breite für eine bessere Kontrolle */
         }
 
         .profile-picture {
-            /* Das Logo wird grösser und ohne kreisförmigen Rahmen angezeigt */
-            width: 200px; /* Grösse angepasst */
-            height: auto; /* Höhe automatisch für korrektes Seitenverhältnis */
-            border-radius: 15px; /* Leichte Abrundung der Ecken */
-            border: none; /* Kein Rand */
-            box-shadow: none; /* Kein Schatten */
-            margin-bottom: 15px; /* Abstand nach unten */
+            width: 150px; /* Größe etwas angepasst für bessere Proportionen */
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 15px;
         }
 
         .title {
-            font-size: 2.2em; /* Schriftgrösse wurde deutlich reduziert */
-            margin: 15px 0; /* Abstand angepasst */
+            font-size: 2em; /* Schriftgröße angepasst */
+            margin: 15px 0;
             font-weight: bold;
             color: #fff;
             text-transform: uppercase;
-            /* Text-Animation */
             animation: text-glow 2s ease-in-out infinite alternate;
         }
         
-        /* Keyframes für die Text-Animation */
         @keyframes text-glow {
             from {
                 text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073;
@@ -92,36 +90,48 @@
 
         .social-links {
             margin-top: 25px;
+            margin-bottom: 30px; /* Abstand zum neuen Inhalt hinzugefügt */
         }
 
         .social-icon {
             display: inline-block;
             margin: 0 15px;
-            font-size: 2.2em; /* Grösse der Icons angepasst */
+            font-size: 2.2em;
             color: #fff;
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .social-icon:hover {
-            transform: scale(1.2) translateY(-5px); /* Leichter Schwebe-Effekt */
+            transform: scale(1.2) translateY(-5px);
         }
 
-        /* Spezifische Hover-Farben für jedes soziale Netzwerk */
-        .youtube:hover {
-            color: #FF0000;
+        .youtube:hover { color: #FF0000; }
+        .tiktok:hover { color: #00f2ea; }
+        .x:hover { color: #000000; }
+        .instagram:hover { color: #E4405F; }
+
+        /* === NEUER BEREICH FÜR "ÜBER MICH" === */
+        .about-section {
+            text-align: left; /* Text linksbündig für bessere Lesbarkeit */
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2); /* Trennlinie */
         }
 
-        .tiktok:hover {
-            color: #00f2ea;
+        .about-section h2 {
+            color: #fff;
+            font-size: 1.5em;
+            text-align: center; /* Überschrift zentriert */
+            margin-bottom: 15px;
         }
 
-        .x:hover {
-            color: #000000;
+        .about-section p {
+            color: #ddd; /* Etwas dunkleres Weiß für den Text */
+            font-size: 1em;
+            line-height: 1.6; /* Zeilenhöhe für bessere Lesbarkeit */
         }
+        /* === ENDE NEUER BEREICH === */
 
-        .instagram:hover {
-            color: #E4405F;
-        }
     </style>
 </head>
 <body>
@@ -132,19 +142,39 @@
     <!-- Hauptinhalt der Seite -->
     <div class="container">
         <div class="profile-card">
-            <!-- Profilbild ausgetauscht und Stil angepasst -->
-            <img src="img/der2gamer.jpg" alt="" class="profile-picture">
             
-            <!-- Animierte Überschrift mit reduzierter Schriftgrösse -->
-            <h1>@der2gamer</h1>
+            <img src="img/der2gamer.jpg" alt="Profilbild von der2gamer" class="profile-picture">
+            
+            <h1 class="title">@der2gamer</h1>
 
             <!-- Social Media Links -->
             <div class="social-links">
                 <a href="https://www.youtube.com/@der2gamer" target="_blank" title="YouTube" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.tiktok.com/@der2gamer" target="_blank" title="TikTok" class="social-icon tiktok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://x.com/der2gamer" target="_blank" title="X (Twitter)" class="social-icon x"><i class="fab fa-twitter"></i></a>
+                <a href="https://x.com/@der2gamer" target="_blank" title="X (Twitter)" class="social-icon x"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.instagram.com/der2gamer" target="_blank" title="Instagram" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
             </div>
+
+            <!-- === NEUER INHALTSBEREICH === -->
+            <div class="about-section">
+                
+                <p>
+                    Willkommen auf meiner Seite! Ich bin der2gamer und meine Leidenschaft ist das Gaming. Hier findest du alles rund um meine neuesten Streams, Videos und Social-Media-Aktivitäten. Schau dich um und verbinde dich mit mir auf den verschiedenen Plattformen!
+                </p>
+                <!-- Hier kannst du weiteren Inhalt hinzufügen -->
+                <p>
+                    <strong>Meine Interessen:</strong> Open-World-Spiele, Retro-Gaming und die neuesten Indie-Hits.
+                </p>
+                <h2>Über mich:</h2>
+                Ich bin seit einigen Monaten leidenschaftlicher
+                Gamer und verbringe viel Zeit mit Gaming. Es macht 
+                mir großen Spaß, neue Spiele auszuprobieren, meine 
+                Fähigkeiten zu verbessern und mich mit anderen Spielern 
+                auszutauschen. Gaming ist für mich mehr als nur ein Hobby 
+                – es ist eine spannende Welt, in der ich ständig Neues 
+                entdecke und mich weiterentwickle.
+            </div>
+            
         </div>
     </div>
 
